@@ -88,3 +88,78 @@ public class Main {
         }
     }
 }
+
+//내가 각 코드에 단 주석
+/*
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Main {
+
+    static int [][] arr; //2차원배열
+    static boolean[] visited;
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] str = br.readLine().split(" ");
+
+        int N =Integer.parseInt(str[0]);
+        int M =Integer.parseInt(str[1]);
+        int V =Integer.parseInt(str[2]);
+
+        arr =new int[N+1][N+1]; //정점의 번호는 1부터 시작이므로 편의상 +1한거임
+                    //해당정점 //그 정점과 만나는 다른정점
+        for(int i=0; i<M; i++){
+            String[] str2 = br.readLine().split(" ");
+
+            int a =Integer.parseInt(str2[0]);
+            int b = Integer.parseInt(str2[1]);
+
+            arr[a][b] = 1;//입력으로 주는 간선이 양방향이므로 둘다 체크
+            arr[b][a] = 1;// 1->2 == 2->1
+        }
+        visited = new boolean[N+1]; //DFS에서 사용할 visited 변수 초기화
+        //N이 4라면[null,null,null,null,null] 0번째를 제외하고 나머지를 채운다 1번부터 시작므로
+        dfs(V);
+
+        System.out.println();
+
+        visited = new boolean[N+1]; //BFS에서 사용할 visited 변수 초기황 아니면 예상한 값이 등장하지않음
+        bfs(V);
+
+    }
+    static void dfs(int V){ //dfs는 스택 또는 재귀로(재귀를 사용하였기때문에 bfs의 while문을 안적어준것임)
+        visited[V] = true; // 첫번째 예제 초기에는 1이v로 들어와있음 1부터 채워주고 시작
+        //[null,true,null,null,null]
+        System.out.print(V+" ");
+        if(V > arr.length-1) return; //V의 번호가 arr의 길이보다 1작을때 즉 N이 4라면 길이또한 1줄어드므로 4이다 이것보다 큰경우는 존재하지않는다.
+        //사실 없어도 됨
+
+        for(int node = 1; node <arr.length; node++){
+            if(arr[V][node] == 1 && visited[node] == false){
+                dfs(node);
+            }
+        }
+
+
+    }
+    static void bfs(int V){//bfs는 큐로 해결
+        Queue<Integer> queue = new LinkedList<Integer>();
+        queue.add(V);
+        visited[V] = true;
+        System.out.print(V+" "); //초기 1값을 넣어줌
+        while(!queue.isEmpty()){
+            int temp = queue.poll();
+            for(int node = 1; node<arr.length; node++){
+                if(arr[temp][node] == 1 && visited[node]==false){
+                    queue.add(node);
+                    visited[node] = true;
+                    System.out.print(node + " "); //1값을 제외한 나머지 순서들을 넣어줌
+                }
+            }
+        }
+    }
+}*/
