@@ -106,6 +106,9 @@ public class Main {
                 temp = board[j][i];
                 board[j][i] = board[j+1][i];
                 board[j+1][i] = temp;
+                //char을 한 스코프 내에 두번 쓸수 없음 그래서 temp두번째에는 char이 없는것임
+                //스코프(scope)는 변수가 유효한 범위를 나타냅니다. Java에서는 중괄호 {}로 둘러싸인 코드 블록 내에서 변수가 선언되고 사용 
+                // 이렇게 {}중괄호로 구분된 코드 영역을 스코프라고 함
             }
         }
 
