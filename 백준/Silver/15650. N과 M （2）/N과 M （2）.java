@@ -36,6 +36,14 @@ public class Main {
             sb.append('\n');
             return;
         }
+        //신기하게 이 코드를 사용하면 오류가 발생 이유는 찾지못한상태
+        /*        
+        if(depth == M){
+            for(int i=0; i<M; i++){
+                sb.append(arr[i]).append(' ');
+            }
+            sb.append('\n');
+        }*/
 
         for(int i=at; i<=N; i++){
             arr[depth] = i;
